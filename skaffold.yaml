@@ -1,0 +1,22 @@
+apiVersion: skaffold/v2beta25
+kind: Config
+metadata:
+  name: demo-flask-k8s
+build:
+  artifacts:
+  - image: registry.matrix/demo/todolist
+    docker:
+      dockerfile: Dockerfile
+  insecureRegistries:
+    - registry.matrix
+deploy:
+  kubectl:
+    manifests:
+    - k8s/flask_deployment.yaml
+    - k8s/flask_ingress.yaml
+    - k8s/flask_service.yaml
+    - k8s/namespace.yaml
+    - k8s/postgres-deployment.yaml
+    - k8s/postgres-pvc.yaml
+    - k8s/postgres-secret.yaml
+    - k8s/postgres-service.yaml

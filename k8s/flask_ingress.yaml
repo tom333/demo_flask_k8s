@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  namespace: demo_flask
+spec:
+  rules:
+  - host: flask.matrix
+    http:
+      paths:
+      - path:
+        backend:
+          serviceName: service-flask-backend
+          servicePort: 5000
