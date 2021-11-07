@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: service-flask-backend
-  namespace: demo_flask
+  namespace: demo-flask
 spec:
   type: NodePort
   selector:

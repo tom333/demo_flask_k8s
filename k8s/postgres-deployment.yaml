@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deployment-postgres
-  namespace: demo_flask
+  namespace: demo-flask
 spec:
   replicas: 1
   selector:

@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: ingress
-  namespace: demo_flask
+  namespace: demo-flask
 spec:
   rules:
   - host: flask.matrix

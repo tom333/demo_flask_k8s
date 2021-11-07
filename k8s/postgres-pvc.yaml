@@ -2,7 +2,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: postgres-db-claim
-  namespace: demo_flask
+  namespace: demo-flask
 spec:
   accessModes:
     - ReadWriteOnce

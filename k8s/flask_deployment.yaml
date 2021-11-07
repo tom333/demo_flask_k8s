@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flask-backend-deployment
-  namespace: demo_flask
+  namespace: demo-flask
 spec:
   replicas: 1
   selector:
@@ -16,7 +16,7 @@ spec:
       containers:
         - name: flask-app
           imagePullPolicy: Always
-          image: ghcr.io/tom333/demo_flask_k8s:main
+          image: ghcr.io/tom333/demo-flask_k8s:main
           resources:
             requests:
               cpu: "50m"
