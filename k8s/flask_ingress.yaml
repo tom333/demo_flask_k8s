@@ -5,7 +5,7 @@ metadata:
   namespace: demo-flask
 spec:
   rules:
-  - host: flask.matrix
+  - host: todolist.matrix
     http:
       paths:
       - path:
