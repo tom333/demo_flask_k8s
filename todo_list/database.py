@@ -1,5 +1,6 @@
 from todo_list import db
 
+
 def fetch_todo() -> dict:
     conn = db.connect()
     query_results = conn.execute("Select * from tasks;").fetchall()
@@ -14,17 +15,20 @@ def fetch_todo() -> dict:
         todo_list.append(item)
     return todo_list
 
+
 def update_task_entry(task_id: int, text: str) -> None:
     conn = db.connect()
     query = 'Update tasks set task = "{}" where id = {};'.format(text, task_id)
     conn.execute(query)
     conn.close()
 
+
 def update_status_entry(task_id: int, text: str) -> None:
     conn = db.connect()
     query = 'Update tasks set status = "{}" where id = {};'.format(text, task_id)
     conn.execute(query)
     conn.close()
+
 
 def insert_new_task(text: str) ->  int:
     conn = db.connect()
@@ -37,6 +41,7 @@ def insert_new_task(text: str) ->  int:
     conn.close()
 
     return task_id
+
 
 def remove_task_by_id(task_id: int) -> None:
     """ remove entries based on task ID """

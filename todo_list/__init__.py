@@ -3,7 +3,7 @@ import os
 import sqlalchemy
 from flask import Flask, render_template, jsonify, request
 
-from todo_list import database as db_helper
+
 
 
 def init_connect_engine():
@@ -63,5 +63,6 @@ def create():
 @app.route("/")
 def homepage():
     """ returns rendered homepage """
+    from todo_list import database as db_helper
     items = db_helper.fetch_todo()
     return render_template("index.html", items=items)
