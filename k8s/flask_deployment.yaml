@@ -16,7 +16,7 @@ spec:
       containers:
         - name: flask-app
           imagePullPolicy: Always
-          image: ghcr.io/tom333/demo-flask_k8s:main
+          image: ghcr.io/tom333/demo_flask_k8s:main
           resources:
             requests:
               cpu: "50m"
