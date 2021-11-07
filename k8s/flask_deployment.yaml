@@ -33,7 +33,10 @@ spec:
                   name: postgres-credentials
                   key: user
             - name: POSTGRES_DB_PSW
-              value: "123sdff"
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: password
           ports:
             - containerPort: 5000
           readinessProbe:
