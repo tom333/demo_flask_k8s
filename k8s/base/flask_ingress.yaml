@@ -2,7 +2,6 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: ingress
-  namespace: demo-flask
 spec:
   rules:
   - host: todolist.matrix

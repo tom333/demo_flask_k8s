@@ -2,16 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deployment-postgres
-  namespace: demo-flask
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      app: database
   template:
-    metadata:
-      labels:
-        app: database
     spec:
       terminationGracePeriodSeconds: 180
       containers:

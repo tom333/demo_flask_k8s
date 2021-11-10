@@ -2,16 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flask-backend-deployment
-  namespace: demo-flask
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: flask-backend
   template:
-    metadata:
-      labels:
-        app: flask-backend
     spec:
       containers:
         - name: flask-app
@@ -47,3 +39,6 @@ spec:
             timeoutSeconds: 3
             successThreshold: 1
             failureThreshold: 5
+          envFrom:
+            - configMapRef:
+                name: config-map-kustomize
