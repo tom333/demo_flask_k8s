@@ -4,8 +4,8 @@ kind: Kustomization
 resources:
 - ../../base
 
-namespace: demo-flask-tgu
-namePrefix: tgu-
+namespace: demo-flask-local
+namePrefix: local-
 configMapGenerator:
   - name: config-map-kustomize
     env: config.properties
