@@ -15,7 +15,7 @@ COPY pyproject.toml .
 RUN poetry install --no-root -vvv
 COPY todo_list todo_list
 RUN poetry build
-RUN ls
+
 
 ## Launch gunicorn
 FROM python:3.8-slim as gunicorn
@@ -27,4 +27,4 @@ RUN pip install *.whl
 
 EXPOSE 8000
 
-ENTRYPOINT ["gunicorn", "--bind", "0.0.0.0:8000", "todo_list:app"]
+ENTRYPOINT ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "2", "--log-level=debug", "todo_list:app"]

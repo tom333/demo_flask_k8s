@@ -1,9 +1,9 @@
-
-
-DATABASE_HOST = "raven-db.integ.gnc"
-DATABASE_USER = "demo"
-DATABASE_PASSWORD = "demo"
-DATABASE_NAME = "demo"
-SQLALCHEMY_DATABASE_URI = "postgresql+psycopg2://%s:%s@%s:5432/%s" % (DATABASE_USER, DATABASE_PASSWORD, DATABASE_HOST, DATABASE_NAME)
+import logging
 
 SQLALCHEMY_TRACK_MODIFICATIONS=False
+
+FLASK_ENV = "development"
+debug = True
+ENV = "development"
+ENVIRONMENT = "development"
+LOG_LEVEL = logging.DEBUG

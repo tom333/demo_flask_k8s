@@ -8,6 +8,8 @@ check: # vérification que les pré requis sont bien installés
 init: check # création du cluster k3s et de sa registry
 	k3d registry create registry.localhost --port 12345
 	k3d cluster delete flask-demo && k3d cluster create flask-demo --registry-use k3d-registry.localhost:12345 -p "80:80@loadbalancer" -p "443:443@loadbalancer"
+	k3d cluster list
+	k3d registry list
 
 start: # démarrage du cluster
 	k3d cluster start flask-demo

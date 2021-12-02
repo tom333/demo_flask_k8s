@@ -15,18 +15,17 @@ spec:
     spec:
       containers:
         - name: flask-backend
-          imagePullPolicy: Always
           image: ghcr.io/tom333/demo_flask_k8s:main
           resources:
             requests:
               cpu: "50m"
-              memory: "128Mi"
+              memory: "128M"
             limits:
               cpu: "500m"
-              memory: "128Mi"
+              memory: "512M"
           env:
             - name: SERVICE_POSTGRES_SERVICE_HOST
-              value: service-postgres.demo-flask.svc.cluster.local
+              value: local-service-postgres
             - name: POSTGRES_DB_USER
               valueFrom:
                 secretKeyRef:

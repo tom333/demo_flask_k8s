@@ -8,9 +8,9 @@ build:
     docker:
       dockerfile: Dockerfile
   insecureRegistries:
-    - k3d-registry.localhost
+  - k3d-registry.localhost:12345
   local:
-    push: true
+    push: false
 
 deploy:
   kustomize:

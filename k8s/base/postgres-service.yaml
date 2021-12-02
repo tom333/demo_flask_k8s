@@ -6,4 +6,5 @@ spec:
   ports:
     - port: 5432
   selector:
-    app: database
+    app: postgres
+  type: ClusterIP
