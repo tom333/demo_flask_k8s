@@ -4,19 +4,15 @@ metadata:
   name: demo-flask-k8s
 build:
   artifacts:
-  - image: registry.matrix/demo/todolist
+  - image: k3d-registry.localhost:12345/demo/todolist
     docker:
       dockerfile: Dockerfile
   insecureRegistries:
-    - registry.matrix
+    - k3d-registry.localhost
+  local:
+    push: true
+
 deploy:
-  kubectl:
-    manifests:
-    - k8s/flask_deployment.yaml
-    - k8s/flask_ingress.yaml
-    - k8s/flask_service.yaml
-    - k8s/namespace.yaml
-    - k8s/postgres-deployment.yaml
-    - k8s/postgres-pvc.yaml
-    - k8s/postgres-secret.yaml
-    - k8s/postgres-service.yaml
+  kustomize:
+    paths:
+      - k8s/overlays/local/
