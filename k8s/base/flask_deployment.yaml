@@ -2,11 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flask-backend-deployment
+  labels:
+    app: flask-backend
 spec:
+  selector:
+    matchLabels:
+      app: flask-backend
   template:
+    metadata:
+      labels:
+        app: flask-backend
     spec:
       containers:
-        - name: flask-app
+        - name: flask-backend
           imagePullPolicy: Always
           image: ghcr.io/tom333/demo_flask_k8s:main
           resources:
@@ -30,15 +38,7 @@ spec:
                   name: postgres-credentials
                   key: password
           ports:
-            - containerPort: 5000
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 5000
-            periodSeconds: 10
-            timeoutSeconds: 3
-            successThreshold: 1
-            failureThreshold: 5
+            - containerPort: 8000
           envFrom:
             - configMapRef:
                 name: config-map-kustomize

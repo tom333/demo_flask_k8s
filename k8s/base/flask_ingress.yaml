@@ -1,13 +1,19 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+    kubernetes.io/ingress.class: "traefik"
 spec:
   rules:
-  - host: todolist.matrix
+  - host: todolist.localhost
     http:
       paths:
-      - path:
+      - path: /
+        pathType: Prefix
         backend:
-          serviceName: service-flask-backend
-          servicePort: 5000
+          service:
+            name: flask-backend-service
+            port:
+              number: 8000

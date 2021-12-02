@@ -4,16 +4,16 @@ kind: Kustomization
 resources:
 - ../../base
 
-namespace: demo-flask-local
+namespace: default
 namePrefix: local-
 configMapGenerator:
   - name: config-map-kustomize
     env: config.properties
 
 images:
-- name: flask-app
-  newName: registry.matrix/demo_flask_k8s
-  newTag: latest
+- name: ghcr.io/tom333/demo_flask_k8s:main
+  newName: k3d-registry.localhost:12345/demo/todolist
+
 
 replicas:
 - name: flask-backend-deployment
