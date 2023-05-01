@@ -6,7 +6,7 @@ authors = ["Thomas Guyader <laboitatom@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-Flask = "^2.0.2"
+Flask = "^2.3.2"
 SQLAlchemy = "^1.4.27"
 psycopg2-binary = "^2.9.2"
 
